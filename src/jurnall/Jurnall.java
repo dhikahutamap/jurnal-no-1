@@ -3,35 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jurnall;
-
-import java.util.Scanner;
+package modifiedsumfibonaci;
 
 /**
  *
  * @author Praktikan
  */
-public class Jurnall {
+public class Modifiedsumfibonaci {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner show = new Scanner(System.in);
-        System.out.print("Masukan Jumlah Deret Fibonacci :  ");
-        int n = show.nextInt();
-        long fib[] = new long[n];
-         
-        fib[0] = 1;
-        fib[1] = 1;
-         
-        for(int i = 2; i < n; i++) {
-            fib[i] = fib[i-1] + fib[i-2];
+static int calculateSum(int n){
+        if (n <= 0)
+            return 0;
+        
+        int fibo []=new int [n+1];
+        fibo [0] = 0; fibo[1] =1;
+        
+        int sum = fibo [0] + fibo[1];
+        
+        for (int i =2; i<=n; i++)
+        {
+            fibo [i] = fibo[i-1]+fibo[i-2];
+            sum += fibo [i];
         }
-         
-        for (int i = 0; i < n; i++) {
-            System.out.print(fib[i] +  " ");
-        }
+        return sum;
     }
- 
+
+
+public static void main (String args[])
+{
+    int n = 4;
+    System.out.println("input : "+n);
+    System.out.println("output : "+ calculateSum(n));
+}
 }
